@@ -4,6 +4,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/sun-utils/pom.xml" />
+        <option value="$PROJECT_DIR$/sun-common/pom.xml" />
       </list>
     </option>
   </component>
