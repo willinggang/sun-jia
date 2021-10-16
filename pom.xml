@@ -11,9 +11,10 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
-    <dependencies>
-
-    </dependencies>
+  <modules>
+      <module>sun-common</module>
+      <module>sun-utils</module>
+  </modules>
 
     <dependencyManagement>
         <dependencies>
