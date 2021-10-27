@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/lee-code/lee-code.iml" filepath="$PROJECT_DIR$/lee-code/lee-code.iml" />
       <module fileurl="file://$PROJECT_DIR$/sun-common/sun-common.iml" filepath="$PROJECT_DIR$/sun-common/sun-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/sun-jia.iml" filepath="$PROJECT_DIR$/sun-jia.iml" />
       <module fileurl="file://$PROJECT_DIR$/sun-utils/sun-utils.iml" filepath="$PROJECT_DIR$/sun-utils/sun-utils.iml" />
