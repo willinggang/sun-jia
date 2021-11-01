@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="lee-code" />
         <module name="sun-utils" />
         <module name="sun-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="lee-code" target="1.8" />
       <module name="sun-common" target="1.8" />
       <module name="sun-commons" target="1.8" />
       <module name="sun-jia" target="1.8" />
