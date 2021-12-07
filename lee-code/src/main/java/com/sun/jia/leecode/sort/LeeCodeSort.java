@@ -1,6 +1,47 @@
 package com.sun.jia.leecode.sort;
 
+import static com.sun.jia.leecode.ReCopy.isBadVersion;
+
 public class LeeCodeSort {
+
+/*二分查找*/
+    public int search(int[] nums, int target) {
+        int low = 0, high = nums.length - 1;
+        while (low <= high) {
+            int mid = (high - low) / 2 + low;
+            int num = nums[mid];
+            if (num == target) {
+                return mid;
+            } else if (num > target) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 第一个错误版本
+     * @param n
+     * @return
+     */
+    public int firstBadVersion(int n) {
+        int left = 1, right = n;
+        while (left < right) { // 循环直至区间左右端点相同
+            int mid = left + (right - left) / 2; // 防止计算时溢出
+            if (isBadVersion(mid)) {
+                right = mid; // 答案在区间 [left, mid] 中
+            } else {
+                left = mid + 1; // 答案在区间 [mid+1, right] 中
+            }
+        }
+        // 此时有 left == right，区间缩为一个点，即为答案
+        return left;
+    }
+
+
+
 
     public static int[] sortedSquares(int[] nums) {
         int left = 0;
