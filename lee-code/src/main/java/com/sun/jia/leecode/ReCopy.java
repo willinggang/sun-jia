@@ -1,5 +1,7 @@
 package com.sun.jia.leecode;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 public class ReCopy {
 
     /**
@@ -112,6 +114,7 @@ public class ReCopy {
             while (i<length&&s.charAt(i)!=' '){
                 i++;
             }
+
             int p = i;
             while(p>=start){
                 buffer.append(s.charAt(p));
@@ -124,5 +127,8 @@ public class ReCopy {
         }
         return buffer.toString();
     }
+
+
+
 
 }
