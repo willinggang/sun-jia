@@ -151,18 +151,12 @@ public class Permute {
     /*已经达到边界*/
 
 
-    private boolean inArea(char[][] grid, int x, int y) {
-        int n = grid.length;
-        int m = grid[0].length;
-        return x >= 0 && x < n && y >= 0 && y < m;
-    }
-
     private void isIslands(char[][] grid, int x, int y) {
         land[x][y] = true;
         for (int i = 0; i < 4; i++) {
             x = step[i][0] + x;
             y = step[i][1] + y;
-            if (inArea(grid,x,y)&&!land[x][y]&&grid[x][y]=='1') {
+            if (inArea(grid, x, y) && !land[x][y] && grid[x][y] == '1') {
                 isIslands(grid, x, y);
             }
         }
@@ -187,6 +181,145 @@ public class Permute {
             }
         }
         return res;
+    }
+
+
+    private int[][] pos = new int[][]{{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
+
+    private int bn;
+    private int bm;
+
+    public void solve(char[][] board) {
+        if (board == null || board.length == 0) {
+            return;
+        }
+        bn = board.length;
+        bm = board[0].length;
+
+        List<List<Integer>> p = new ArrayList<>();
+
+        for (int i = 0; i < bn; i++) {
+            for (int j = 0; j < bm; j++) {
+                boolean ret = true;
+                if (board[i][j] != 'X') {
+                    ret = board(board, i, j, p);
+                }
+                if (!ret) {
+                    for (List<Integer> pp : p) {
+                        board[pp.get(0)][pp.get(1)] = 'O';
+                    }
+                }
+                p.clear();
+            }
+        }
+
+    }
+
+
+    /**
+     * @param board
+     * @param x
+     * @param y
+     * @param p
+     */
+    private boolean board(char[][] board, int x, int y, List<List<Integer>> p) {
+        if (board[x][y] == 'X') {
+            return true;
+        }
+        if (!inArea(board, x, y)) {
+            return false;
+        }
+
+        board[x][y] = 'X';
+        p.add(Arrays.asList(x, y));
+        boolean ret = true;
+        for (int i = 0; i < 4; i++) {
+            int newX = x + pos[i][0];
+            int newY = y + pos[i][1];
+            ret = board(board, newX, newY, p);
+            if (!ret) {
+                break;
+            }
+        }
+        /*if (!ret) {
+            board[x][y] = 'O';
+            p.remove(p.size() - 1);
+            return ret;
+        }*/
+
+        return ret;
+    }
+
+    private boolean inArea(char[][] grid, int x, int y) {
+        int n = grid.length;
+        int m = grid[0].length;
+        return x > 0 && x < n - 1 && y > 0 && y < m - 1;
+    }
+
+
+    /*太平洋大西洋水流问题*/
+    List<List<Integer>> paPos;
+
+
+    public List<List<Integer>> pacificAtlantic(int[][] heights) {
+        paPos = new ArrayList<>();
+        if (heights == null || heights.length == 0) {
+            return paPos;
+        }
+        int an = heights.length;
+        int am = heights[0].length;
+        for (int i = 0; i < an; i++) {
+            for (int j = 0; j < am; j++) {
+                if ((i == 0 && j == am - 1) || (i == an - 1 && j == 0)) {
+                    paPos.add(buildPos(i, j));
+                } else {
+                    if ((isCan(heights, i, j, 0, heights[i][j]) || isCan(heights, i, j, 2, heights[i][j]))
+                            && (isCan(heights, i, j, 1, heights[i][j]) || isCan(heights, i, j, 3, heights[i][j]))) {
+                        paPos.add(buildPos(i, j));
+                    }
+                }
+            }
+        }
+        return paPos;
+
+    }
+
+    public boolean isCan(int[][] heights, int x, int y, int type, int posV) {
+        if (!inPaArea(heights,x,y)){
+            return true;
+        }
+        if (heights[x][y] > posV) {
+            return false;
+        }
+
+        int newx = x;
+        int newy = y;
+        if (type == 0) {
+            newx = x;
+            newy = y - 1;
+        } else if (type == 1) {
+            newx = x;
+            newy = y + 1;
+        } else if (type == 2) {
+            newx = x - 1;
+            newy = y;
+        } else if (type == 3) {
+            newx = x + 1;
+            newy = y;
+        }
+        return isCan(heights, newx, newy, type, heights[x][y]);
+    }
+
+
+    private boolean inPaArea(int[][] grid, int x, int y) {
+        int n = grid.length;
+        int m = grid[0].length;
+        return x >= 0 && x < n && y >= 0 && y < m;
+    }
+
+
+    public List<Integer> buildPos(int x, int y) {
+        return Arrays.asList(x, y);
     }
 
 
