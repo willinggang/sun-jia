@@ -17,60 +17,85 @@ public class SortAlgorithm {
     }
 
 
-    public static void selectSort(int array[]){
-        if (array == null||array.length ==0){
+    public static void selectSort(int array[]) {
+        if (array == null || array.length == 0) {
             return;
         }
         int n = array.length;
-        for (int i = 0;i<n;i++){
+        for (int i = 0; i < n; i++) {
             int index = i;
-            for (int j=i+1;j<array.length;j++){
-                if (array[index]>array[j]){
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[index] > array[j]) {
                     index = j;
                 }
             }
 
-            if (i!=index){
-                swap(array,i,index);
+            if (i != index) {
+                swap(array, i, index);
             }
         }
     }
 
 
-    public static void insertSort(int[] array){
-        if (array == null||array.length == 0){
+    public static void insertSort(int[] array) {
+        if (array == null || array.length == 0) {
             return;
         }
-        for (int i=1;i<array.length;i++){
+        for (int i = 1; i < array.length; i++) {
             int j = i;
             int temp = array[i];
-            for (;j>0;j--){
-                if (array[j-1]>temp){
-                    array[j] = array[j-1];
-                }else {
+            for (; j > 0; j--) {
+                if (array[j - 1] > temp) {
+                    array[j] = array[j - 1];
+                } else {
                     break;
                 }
             }
-            array[j]= temp;
+            array[j] = temp;
 
         }
     }
 
 
-    public static void quickSort(int[] array,int start,int end){
-        if (start<end){
+    public static void quickSort(int[] array, int start, int end) {
+        if (start < end) {
             int key = array[start];
             int i = start;
-            for (int j = start+1;j<=end;j++){
-                if (key>array[j]){
-                    swap(array,j,++i);
+            for (int j = start + 1; j <= end; j++) {
+                if (key > array[j]) {
+                    swap(array, j, ++i);
                 }
             }
             array[start] = array[i];
-            array[i]= key;
-            quickSort(array,start,end-1);
-            quickSort(array,i+1,end);
+            array[i] = key;
+            quickSort(array, start, end - 1);
+            quickSort(array, i + 1, end);
         }
+    }
+
+
+
+    public static void myQuickSort(int[] array, int start, int end) {
+        if (start >= end) return;
+        int i, j, base;
+        i = start;
+        j = end;
+        base = array[start];
+        while (i < j) {
+            while (i < j && base < array[j]) {
+                j--;
+            }
+            while (i < j && base > array[i]) {
+                i++;
+            }
+            if (i < j) {
+                swap(array, i, j);
+            }
+        }
+        swap(array, start, j);
+
+        myQuickSort(array, start, i - 1);
+        myQuickSort(array, i + 1, end);
     }
 
 

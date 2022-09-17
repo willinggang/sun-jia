@@ -1,3 +1,4 @@
+/*
 package com.sun.jia.leecode;
 
 import com.sun.jia.leecode.mook.Dp;
@@ -47,3 +48,4 @@ class LeeCodeApplicationTests {
     }
 
 }
+*/

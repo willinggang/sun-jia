@@ -1,3 +1,4 @@
+/*
 package com.sun.jia.leecode.mook;
 
 import java.util.ArrayList;
@@ -5,10 +6,12 @@ import java.util.List;
 
 public class BinaryTree {
 
-    /*
+    */
+/*
      *二叉树最大深度
      *
-     * */
+     * *//*
+
 
     public int maxDepth(TreeNode root) {
         if (root == null) {
@@ -19,7 +22,9 @@ public class BinaryTree {
         return Math.max(left, right) + 1;
     }
 
-    /*最小深度*/
+    */
+/*最小深度*//*
+
     public int minDepth(TreeNode root) {
         if (root == null) {
             return 0;
@@ -32,11 +37,13 @@ public class BinaryTree {
         return Math.min(left, right) + 1;
     }
 
-    /**
+    */
+/**
      * 反转二叉树
      *
      * @param root
-     */
+     *//*
+
     public void revertBinaryTree(TreeNode root) {
         if (root == null) {
             return;
@@ -51,18 +58,21 @@ public class BinaryTree {
     }
 
 
-    /**
+    */
+/**
      * 给你二叉树的根节点 root 和一个整数目标和 targetSum ，找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径
-     */
+     *//*
+
     List<List<Integer>> pathSumRes = new ArrayList<>();
 
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        /**/
+        */
+/**//*
+
         if (root == null) {
             return null;
         }
         List<Integer> temp = new ArrayList<>();
-        temp.add(root.val);
         dfs(root, targetSum, temp);
         return pathSumRes;
     }
@@ -70,7 +80,9 @@ public class BinaryTree {
     public void dfs(TreeNode root, int targetSum, List<Integer> rootList) {
         List<Integer> temp = new ArrayList<>(rootList);
         temp.add(root.val);
-        /*如果是页节点并且满足则添加,添加到列表*/
+        */
+/*如果是页节点并且满足则添加,添加到列表*//*
+
         if (root.left == null && root.right == null && targetSum == root.val) {
             pathSumRes.add(temp);
             return;
@@ -82,7 +94,9 @@ public class BinaryTree {
     }
 
 
-    /*给你一棵 完全二叉树 的根节点 root ，求出该树的节点个数。*/
+    */
+/*给你一棵 完全二叉树 的根节点 root ，求出该树的节点个数。*//*
+
 
     public int countNodes(TreeNode root) {
         if (root == null){
@@ -107,7 +121,9 @@ public class BinaryTree {
         return level;
     }
 
-    /*给定一个二叉树，判断它是否是高度平衡的二叉树。*/
+    */
+/*给定一个二叉树，判断它是否是高度平衡的二叉树。*//*
+
     public boolean isBalanced(TreeNode root) {
 
        if (root!=null&&root.left == null&&root.right == null){
@@ -147,3 +163,4 @@ public class BinaryTree {
 
 
 }
+*/

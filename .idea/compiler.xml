@@ -12,11 +12,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="lee-code" target="1.8" />
-      <module name="sun-common" target="1.8" />
+      <module name="lee-code" target="1.5" />
+      <module name="sun-common" target="1.5" />
       <module name="sun-commons" target="1.8" />
-      <module name="sun-jia" target="1.8" />
-      <module name="sun-utils" target="1.8" />
+      <module name="sun-jia" target="1.5" />
+      <module name="sun-utils" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

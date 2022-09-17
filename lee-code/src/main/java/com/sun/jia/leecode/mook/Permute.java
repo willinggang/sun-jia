@@ -1,16 +1,21 @@
+/*
 package com.sun.jia.leecode.mook;
 
 import org.springframework.util.StringUtils;
 
 import java.util.*;
 
+*/
 /**
  * 全排列
- */
+ *//*
+
 public class Permute {
 
 
-    /*给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案*/
+    */
+/*给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案*//*
+
     public List<List<Integer>> permute(int[] nums) {
         permuteList = new ArrayList<>();
         if (nums == null || nums.length == 0) {
@@ -23,11 +28,13 @@ public class Permute {
         return permuteList;
     }
 
-    /**
+    */
+/**
      * @param nums  原始数组
      * @param index 已经保存的数量
      * @param p     已经排列好的
-     */
+     *//*
+
     private void generatePermutation(int[] nums, int index, List<Integer> p) {
 
         if (index == nums.length) {
@@ -50,7 +57,9 @@ public class Permute {
     int[] used;
     List<Integer> generateStrList;
 
-    /*给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列*/
+    */
+/*给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列*//*
+
     public List<List<Integer>> permuteUnique(int[] nums) {
         permuteList = new ArrayList<>();
         if (nums == null || nums.length == 0) {
@@ -84,12 +93,14 @@ public class Permute {
             }
         }
     }
+*/
 /*找出所有相加之和为 n 的 k 个数的组合，且满足下列条件：
 
 只使用数字1到9
 每个数字 最多使用一次 
 返回 所有可能的有效组合的列表 。该列表不能包含相同的组合两次，组合可以以任何顺序返回。
-*/
+*//*
+
 
     List<List<Integer>> res;
 
@@ -144,11 +155,15 @@ public class Permute {
         return res;
     }
 
-    /*记录已经遍历的足迹*/
+    */
+/*记录已经遍历的足迹*//*
+
     boolean[][] land;
     Integer[][] step = new Integer[][]{{0, -1}, {1, 0}, {0, 1}, {-1, 0}};
 
-    /*已经达到边界*/
+    */
+/*已经达到边界*//*
+
 
 
     private void isIslands(char[][] grid, int x, int y) {
@@ -216,12 +231,14 @@ public class Permute {
     }
 
 
-    /**
+    */
+/**
      * @param board
      * @param x
      * @param y
      * @param p
-     */
+     *//*
+
     private boolean board(char[][] board, int x, int y, List<List<Integer>> p) {
         if (board[x][y] == 'X') {
             return true;
@@ -241,11 +258,13 @@ public class Permute {
                 break;
             }
         }
-        /*if (!ret) {
+        */
+/*if (!ret) {
             board[x][y] = 'O';
             p.remove(p.size() - 1);
             return ret;
-        }*/
+        }*//*
+
 
         return ret;
     }
@@ -257,7 +276,9 @@ public class Permute {
     }
 
 
-    /*太平洋大西洋水流问题*/
+    */
+/*太平洋大西洋水流问题*//*
+
     List<List<Integer>> paPos;
 
 
@@ -322,5 +343,21 @@ public class Permute {
         return Arrays.asList(x, y);
     }
 
+    HashMap<Long,Long> cache = new HashMap<Long, Long>();
+    public long fib(long n){
 
+        if (n==0){
+            return 0;
+        }
+        if (n==1){
+            return 1;
+        }
+        if (cache.get(n)!=null){
+            return cache.get(n);
+        }
+        long ret = fib(n-1)+ fib(n-2);
+        cache.put(n,ret);
+        return ret;
+    }
 }
+*/

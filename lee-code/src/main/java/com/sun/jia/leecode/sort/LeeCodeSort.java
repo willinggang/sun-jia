@@ -4,7 +4,7 @@ import static com.sun.jia.leecode.ReCopy.isBadVersion;
 
 public class LeeCodeSort {
 
-/*二分查找*/
+    /*二分查找*/
     public int search(int[] nums, int target) {
         int low = 0, high = nums.length - 1;
         while (low <= high) {
@@ -23,6 +23,7 @@ public class LeeCodeSort {
 
     /**
      * 第一个错误版本
+     *
      * @param n
      * @return
      */
@@ -39,8 +40,6 @@ public class LeeCodeSort {
         // 此时有 left == right，区间缩为一个点，即为答案
         return left;
     }
-
-
 
 
     public static int[] sortedSquares(int[] nums) {
@@ -61,6 +60,7 @@ public class LeeCodeSort {
         }
         return result;
     }
+
 
     public void rotate(int[] nums, int k) {
         int n = nums.length;
@@ -137,6 +137,26 @@ public class LeeCodeSort {
             }
         }
         return buffer.toString();
+    }
+
+    public String reverseWords2(String content) {
+        StringBuffer sb = new StringBuffer();
+        int i = 0;
+        int length = content.length();
+        while (i < length) {
+            int start = i;
+            while (i < length && content.charAt(i) != ' '){
+                i++;
+            }
+            for (int p = start;p<i;p++){
+                sb.append(content.charAt(start+i-p-1));
+            }
+            while (i<length&&content.charAt(i) == ' '){
+                sb.append(" ");
+                i++;
+            }
+        }
+        return sb.toString();
     }
 
 
